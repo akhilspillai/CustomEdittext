@@ -194,11 +194,13 @@ public class CustomEditTextView extends View {
         return mExampleString;
     }
     private void deleteExampleString() {
-        StringBuilder sb = new StringBuilder(mExampleString);
-        sb.delete(sb.length() - 1, sb.length());
-        mExampleString = sb.toString();
-        invalidateTextPaintAndMeasurements();
-        invalidate();
+        if (mExampleString.length() > 0) {
+            StringBuilder sb = new StringBuilder(mExampleString);
+            sb.delete(sb.length() - 1, sb.length());
+            mExampleString = sb.toString();
+            invalidateTextPaintAndMeasurements();
+            invalidate();
+        }
     }
 
 
